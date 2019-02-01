@@ -1,0 +1,38 @@
+from random import *
+
+print("Hallo, we are going to play a game.\nAre you ready? (Y/N)\n")
+
+first_answer = input()
+money = 100
+if first_answer.capitalize() == ("Y"):
+    print("Ok, we begin.")
+    print(f"You have {money}, one attempt costs 5$.")
+
+for number in range(100):
+    print("To exit the game simply print exit, or press any another button to continue...")
+    second_answer = input()
+
+    if second_answer == "exit":
+        print(f"Your final bank: {money}")
+        exit
+
+# Condition
+    if money != 0 and second_answer != "exit":
+        money = money - 5
+
+        x = randint(1, 9)
+        y = randint(1, 9)
+        z = randint(1, 9)
+
+        #Win
+        if x==y and y==z:
+            print("You won 150$.")
+            money = money + 150
+        #Gameover
+        if money == 0:
+            print("I'm sorry, but you are out of money.")
+            exit()
+
+        print(f"Number: {x}{y}{z}")
+        print(f"You have {money} left.")
+
